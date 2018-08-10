@@ -93,7 +93,7 @@ public class InventoryProvider extends ContentProvider {
                 // For the ITEMS code, query the inventory table directly with the given
                 // projection, selection, selection arguments, and sort order. The cursor
                 // could contain multiple rows of the inventory table.
-                cursor = database.query(InventoryContract.InventoryEntry.TABLE_NAME, projection, selection, selectionArgs,
+                cursor = database.query(InventoryEntry.TABLE_NAME, projection, selection, selectionArgs,
                         null, null, sortOrder);
                 break;
             case ITEM_ID:
@@ -105,12 +105,12 @@ public class InventoryProvider extends ContentProvider {
                 // For every "?" in the selection, we need to have an element in the selection
                 // arguments that will fill in the "?". Since we have 1 question mark in the
                 // selection, we have 1 String in the selection arguments' String array.
-                selection = InventoryContract.InventoryEntry._ID + "=?";
+                selection = InventoryEntry._ID + "=?";
                 selectionArgs = new String[] { String.valueOf(ContentUris.parseId(uri)) };
 
                 // This will perform a query on the inventory table where the _id equals 3 to return a
                 // Cursor containing that row of the table.
-                cursor = database.query(InventoryContract.InventoryEntry.TABLE_NAME, projection, selection, selectionArgs,
+                cursor = database.query(InventoryEntry.TABLE_NAME, projection, selection, selectionArgs,
                         null, null, sortOrder);
                 break;
             default:
@@ -137,31 +137,31 @@ public class InventoryProvider extends ContentProvider {
     private Uri insertItem(Uri uri, ContentValues values) {
         // Check that the item name is not null
         String name = values.getAsString(InventoryEntry.COLUMN_ITEM_NAME);
-        if (name == null || (name.length()==0)) {
+        if (name == null) {
             throw new IllegalArgumentException("Item requires a name");
         }
 
         // Check that the price is valid
         Float price = values.getAsFloat(InventoryEntry.COLUMN_ITEM_PRICE);
-        if (price != null && price < 0.00) {
+        if (price == null) {
             throw new IllegalArgumentException("Item requires a non-negative price");
         }
 
         // If the quantity is provided, check that it's greater than or equal to 0
         Integer quantity = values.getAsInteger(InventoryEntry.COLUMN_ITEM_QUANTITY);
-        if (quantity != null && quantity < 0) {
+        if (quantity == null) {
             throw new IllegalArgumentException("Item requires a non-negative quantity");
         }
 
         // Check that the supplier name is not null
         String supplierName = values.getAsString(InventoryEntry.COLUMN_ITEM_SUPPLIER_NAME);
-        if (supplierName == null || (supplierName.length()==0)) {
+        if (supplierName == null) {
             throw new IllegalArgumentException("Item requires a supplier name");
         }
 
         // Check that the supplier phone is not null
-        String supplierPhone = values.getAsString(InventoryEntry.COLUMN_ITEM_SUPPLIER_NAME);
-        if (supplierPhone == null || (supplierPhone.length()==0)) {
+        String supplierPhone = values.getAsString(InventoryEntry.COLUMN_ITEM_SUPPLIER_PHONE_NUMBER);
+        if (supplierPhone == null) {
             throw new IllegalArgumentException("Item requires a supplier phone number");
         }
 
@@ -218,7 +218,7 @@ public class InventoryProvider extends ContentProvider {
         // check that the price value is valid.
         if (values.containsKey(InventoryEntry.COLUMN_ITEM_PRICE)) {
             Float price = values.getAsFloat(InventoryEntry.COLUMN_ITEM_PRICE);
-            if (price == null || price < 0.00) {
+            if (price == null) {
                 throw new IllegalArgumentException("Item requires valid price");
             }
         }
@@ -228,7 +228,7 @@ public class InventoryProvider extends ContentProvider {
         if (values.containsKey(InventoryEntry.COLUMN_ITEM_QUANTITY)) {
             // Check that the quantity is greater than or equal to 0 kg
             Integer quantity = values.getAsInteger(InventoryEntry.COLUMN_ITEM_QUANTITY);
-            if (quantity != null && quantity < 0) {
+            if (quantity == null) {
                 throw new IllegalArgumentException("Item requires valid quantity");
             }
         }
@@ -237,7 +237,7 @@ public class InventoryProvider extends ContentProvider {
         // check that the name value is not null or blank.
         if (values.containsKey(InventoryEntry.COLUMN_ITEM_SUPPLIER_NAME)) {
             String supplierName = values.getAsString(InventoryEntry.COLUMN_ITEM_SUPPLIER_NAME);
-            if (supplierName == null || supplierName.length()==0) {
+            if (supplierName == null) {
                 throw new IllegalArgumentException("Item requires a supplier name");
             }
         }
@@ -246,7 +246,7 @@ public class InventoryProvider extends ContentProvider {
         // check that the phone value is not null or blank.
         if (values.containsKey(InventoryEntry.COLUMN_ITEM_SUPPLIER_PHONE_NUMBER)) {
             String supplierPhone = values.getAsString(InventoryContract.InventoryEntry.COLUMN_ITEM_SUPPLIER_PHONE_NUMBER);
-            if (supplierPhone == null || supplierPhone.length()==0) {
+            if (supplierPhone == null) {
                 throw new IllegalArgumentException("Item requires a supplier phone number");
             }
         }
@@ -256,7 +256,7 @@ public class InventoryProvider extends ContentProvider {
             return 0;
         }
 
-        // Otherwise, get writeable database to update the data
+        // Otherwise, get writable database to update the data
         SQLiteDatabase database = mDbHelper.getWritableDatabase();
 
         // Returns the number of database rows affected by the update statement
@@ -265,7 +265,7 @@ public class InventoryProvider extends ContentProvider {
 
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
-        // Get writeable database
+        // Get writable database
         SQLiteDatabase database = mDbHelper.getWritableDatabase();
 
         final int match = sUriMatcher.match(uri);

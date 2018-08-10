@@ -18,6 +18,7 @@ package com.crystaltowerdesigns.inventory.data;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.crystaltowerdesigns.inventory.data.InventoryContract.InventoryEntry;
 
@@ -32,7 +33,7 @@ public class InventoryDbHelper extends SQLiteOpenHelper {
     /**
      * Name of the database file
      */
-    private static final String DATABASE_NAME = "inventory.db";
+    private static final String DATABASE_NAME = "inventory7.db";
 
     /**
      * Database version. Increment with each new version.
@@ -57,13 +58,15 @@ public class InventoryDbHelper extends SQLiteOpenHelper {
         String SQL_CREATE_INVENTORY_TABLE = "CREATE TABLE " + InventoryEntry.TABLE_NAME + " ("
                 + InventoryEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + InventoryEntry.COLUMN_ITEM_NAME + " TEXT NOT NULL, "
-                + InventoryEntry.COLUMN_ITEM_PRICE + " REAL DEFAULT 0.0, "
-                + InventoryEntry.COLUMN_ITEM_QUANTITY + " INTEGER NOT NULL DEFAULT 0, "
+                + InventoryEntry.COLUMN_ITEM_PRICE + " REAL NOT NULL, "
+                + InventoryEntry.COLUMN_ITEM_QUANTITY + " INTEGER NOT NULL, "
                 + InventoryEntry.COLUMN_ITEM_SUPPLIER_NAME + " TEXT NOT NULL, "
                 + InventoryEntry.COLUMN_ITEM_SUPPLIER_PHONE_NUMBER + " TEXT NOT NULL);";
 
+//        db.execSQL("CREATE TABLE test (_ID INTEGER PRIMARY KEY AUTOINCREMENT, person TEXT);");
         // Execute the SQL statement
-        db.execSQL(SQL_CREATE_INVENTORY_TABLE);
+            db.execSQL(SQL_CREATE_INVENTORY_TABLE);
+            Log.v("OUCH", SQL_CREATE_INVENTORY_TABLE);
     }
 
     /**

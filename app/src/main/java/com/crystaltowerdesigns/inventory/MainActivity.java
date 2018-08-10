@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 InventoryEntry.COLUMN_ITEM_SUPPLIER_PHONE_NUMBER };
 
         // Perform a query on the provider using the ContentResolver.
-        // Use the {@link InventoryEntry#CONTENT_URI} to access the pet data.
+        // Use the {@link InventoryEntry#CONTENT_URI} to access the inventory data.
         Cursor cursor = getContentResolver().query(
                 InventoryEntry.CONTENT_URI,   // The content URI of the words table
                 projection,             // The columns to return for each row
@@ -57,13 +57,8 @@ public class MainActivity extends AppCompatActivity {
         TextView displayView = (TextView) findViewById(R.id.database_summary);
 
         try {
-            // Create a header in the Text View that looks like this:
-            //
-            // The pets table contains <number of rows in Cursor> pets.
-            // _id - name - breed - gender - weight
-            //
             // In the while loop below, iterate through the rows of the cursor and display
-            // the information from each column in this order.
+            // the information from each column.
             displayView.setText("The inventory table contains " + cursor.getCount() + " items.\n\n");
             displayView.append(InventoryEntry._ID + " - " +
                     InventoryEntry.COLUMN_ITEM_NAME + " - " +

@@ -5,9 +5,12 @@ import android.net.Uri;
 import android.provider.BaseColumns;
 
 /**
- * API Contract for the Pets app.
+ * API Contract for the Inventory app.
  */
 public final class InventoryContract {
+
+    // Empty constructor to prevent accidentally instantiating the contract class
+    private InventoryContract() {}
 
     /**
      * "CONTENT_AUTHORITY" using the package name for the app, it is guaranteed to be unique on the device.
@@ -25,10 +28,6 @@ public final class InventoryContract {
      * looking at inventory data.
      */
     public static final String PATH_INVENTORY = "inventory";
-
-    // Empty constructor to prevent accidentally instantiating the contract class
-    private InventoryContract() {
-    }
 
     /**
      * Inner class that defines constant values for the inventory table.
@@ -56,7 +55,7 @@ public final class InventoryContract {
         /**
          * Name of database table for inventory items
          */
-        public final static String TABLE_NAME = "inventory";
+        public final static String TABLE_NAME = "inventorytable";
 
         /**
          * Unique ID number for the inventory item (only use in the database table).
@@ -91,14 +90,14 @@ public final class InventoryContract {
          * <p>
          * Type: TEXT
          */
-        public final static String COLUMN_ITEM_SUPPLIER_NAME = "supplier_name";
+        public final static String COLUMN_ITEM_SUPPLIER_NAME = "suppliername";
 
         /**
          * Phone Number of the supplier of the item.
          * <p>
          * Type: TEXT
          */
-        public final static String COLUMN_ITEM_SUPPLIER_PHONE_NUMBER = "supplier_phone";
+        public final static String COLUMN_ITEM_SUPPLIER_PHONE_NUMBER = "supplierphone";
 
         /**
          * Place constants here: public static final
