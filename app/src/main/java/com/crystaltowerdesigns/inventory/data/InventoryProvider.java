@@ -22,6 +22,7 @@ import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.crystaltowerdesigns.inventory.data.InventoryContract.InventoryEntry;
@@ -32,7 +33,7 @@ import com.crystaltowerdesigns.inventory.data.InventoryContract.InventoryEntry;
 public class InventoryProvider extends ContentProvider {
 
     /** Tag for the log messages */
-    public static final String LOG_TAG = InventoryProvider.class.getSimpleName();
+    private static final String LOG_TAG = InventoryProvider.class.getSimpleName();
 
     /** URI matcher code for the content URI for the inventory table */
     private static final int ITEMS = 100;
@@ -78,7 +79,7 @@ public class InventoryProvider extends ContentProvider {
     }
 
     @Override
-    public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs,
+    public Cursor query(@NonNull Uri uri, String[] projection, String selection, String[] selectionArgs,
                         String sortOrder) {
         // Get readable database
         SQLiteDatabase database = mDbHelper.getReadableDatabase();
@@ -120,7 +121,7 @@ public class InventoryProvider extends ContentProvider {
     }
 
     @Override
-    public Uri insert(Uri uri, ContentValues contentValues) {
+    public Uri insert(@NonNull Uri uri, ContentValues contentValues) {
         final int match = sUriMatcher.match(uri);
         switch (match) {
             case ITEMS:
@@ -181,7 +182,7 @@ public class InventoryProvider extends ContentProvider {
     }
 
     @Override
-    public int update(Uri uri, ContentValues contentValues, String selection,
+    public int update(@NonNull Uri uri, ContentValues contentValues, String selection,
                       String[] selectionArgs) {
         final int match = sUriMatcher.match(uri);
         switch (match) {
@@ -204,7 +205,7 @@ public class InventoryProvider extends ContentProvider {
      * specified in the selection and selection arguments (which could be 0 or 1 or more inventory items).
      * Return the number of rows that were successfully updated.
      */
-    private int updateItem(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
+    private int updateItem(@SuppressWarnings("unused") Uri uri, ContentValues values, String selection, String[] selectionArgs) {
         // If the {@link InventoryEntry#COLUMN_ITEM_NAME} key is present,
         // check that the name value is not null.
         if (values.containsKey(InventoryEntry.COLUMN_ITEM_NAME)) {
@@ -264,7 +265,7 @@ public class InventoryProvider extends ContentProvider {
     }
 
     @Override
-    public int delete(Uri uri, String selection, String[] selectionArgs) {
+    public int delete(@NonNull Uri uri, String selection, String[] selectionArgs) {
         // Get writable database
         SQLiteDatabase database = mDbHelper.getWritableDatabase();
 
@@ -284,7 +285,7 @@ public class InventoryProvider extends ContentProvider {
     }
 
     @Override
-    public String getType(Uri uri) {
+    public String getType(@NonNull Uri uri) {
         final int match = sUriMatcher.match(uri);
         switch (match) {
             case ITEMS:

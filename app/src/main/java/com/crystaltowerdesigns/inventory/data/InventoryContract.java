@@ -20,7 +20,7 @@ public final class InventoryContract {
     /**
      * CONTENT_AUTHORITY is used for the base URI's to contact the content provider.
      */
-    public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
+    private static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
 
     /**
      * Possible path (appended to base content URI for possible URI's)
@@ -30,6 +30,7 @@ public final class InventoryContract {
     public static final String PATH_INVENTORY = "inventory";
 
     /**
+     * {@link BaseColumns}
      * Inner class that defines constant values for the inventory table.
      * Each entry in the table represents a single inventory item.
      */
@@ -98,10 +99,6 @@ public final class InventoryContract {
          * Type: TEXT
          */
         public final static String COLUMN_ITEM_SUPPLIER_PHONE_NUMBER = "supplierphone";
-
-        /**
-         * Place constants here: public static final
-         */
     }
 }
 

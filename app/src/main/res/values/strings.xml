@@ -1,3 +1,12 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Inventory App</string>
+    <string name="rawInventoryViewHeader" tools:ignore="PluralsCandidate">The inventory table contains %d items.\n\nThis is a raw view.\n\nVarious price summaries are available in the menu in the app bar.\nThese summaries will implement the use of queries\/cursors.\n\n</string>
+    <string name="sumPricesViewHeader">The inventory table contains %d items with the name %s.\nThe total price of these items is %s.</string>
+    <string name="items_deleted">item(s) deleted from inventory</string>
+    <string name="widget_two_total_price">\'Widget Two\' Total Price</string>
+    <string name="widget_one_total_price">\'Widget One\' Total Price</string>
+    <string name="all_inventory_total_price">\'All Inventory\' Total Price</string>
+    <string name="delete_all_inventory">Delete ALL Inventory</string>
+    <string name="add_2_dummy_inventory_items">Add a Dummy Inventory Item</string>
+    <string name="puzzle_image">Puzzle Image</string>
 </resources>
