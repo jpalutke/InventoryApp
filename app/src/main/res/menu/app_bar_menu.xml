@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_add_2_dummy_items"
+        android:id="@+id/action_add_dummy_item"
         android:icon="@android:drawable/ic_menu_add"
-        android:title="@string/add_2_dummy_inventory_items"
+        android:title="@string/add_dummy_inventory_item"
         app:showAsAction="ifRoom|collapseActionView" />
 
     <item
@@ -13,23 +13,5 @@
         android:icon="@android:drawable/ic_menu_delete"
         android:title="@string/delete_all_inventory"
         app:showAsAction="ifRoom|collapseActionView" />
-
-    <item
-        android:id="@+id/action_subtotal_prices_of_all_items"
-        android:icon="@drawable/ic_add_black_24dp"
-        android:title="@string/all_inventory_total_price"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/action_subtotal_prices_of_all_widget_one_items"
-        android:icon="@drawable/ic_exposure_plus_1_black_24dp"
-        android:title="@string/widget_one_total_price"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/action_subtotal_prices_of_all_widget_two_items"
-        android:icon="@drawable/ic_exposure_plus_1_black_24dp"
-        android:title="@string/widget_two_total_price"
-        app:showAsAction="never" />
 
 </menu>

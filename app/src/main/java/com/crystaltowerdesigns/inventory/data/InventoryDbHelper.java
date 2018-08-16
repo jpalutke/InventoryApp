@@ -10,7 +10,7 @@ import com.crystaltowerdesigns.inventory.data.InventoryContract.InventoryEntry;
  * Database helper for inventory.
  * Handles database creation and version control.
  */
-public class InventoryDbHelper extends SQLiteOpenHelper {
+class InventoryDbHelper extends SQLiteOpenHelper {
 
     /**
      * Name of the database file
@@ -44,7 +44,7 @@ public class InventoryDbHelper extends SQLiteOpenHelper {
                 + InventoryEntry.COLUMN_ITEM_QUANTITY + " INTEGER NOT NULL, "
                 + InventoryEntry.COLUMN_ITEM_SUPPLIER_NAME + " TEXT NOT NULL, "
                 + InventoryEntry.COLUMN_ITEM_SUPPLIER_PHONE_NUMBER + " TEXT NOT NULL);";
-            db.execSQL(SQL_CREATE_INVENTORY_TABLE);
+        db.execSQL(SQL_CREATE_INVENTORY_TABLE);
     }
 
     /**
@@ -53,12 +53,5 @@ public class InventoryDbHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // Database version 1 requires nothing to do here.
-    }
-
-    public static String doubleQuote(String stringToPrepare) {
-        String workingString = stringToPrepare;
-        workingString = workingString.replace("'", "''");
-        workingString = workingString.replace("\"", "\"\"");
-        return workingString;
     }
 }

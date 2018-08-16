@@ -1,12 +1,57 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">Inventory App</string>
-    <string name="rawInventoryViewHeader" tools:ignore="PluralsCandidate">The inventory table contains %d items.\n\nThis is a raw view.\n\nVarious price summaries are available in the menu in the app bar.\nThese summaries will implement the use of queries\/cursors.\n\n</string>
-    <string name="sumPricesViewHeader">The inventory table contains %d items with the name %s.\nThe total price of these items is %s.</string>
+    <string name="app_name">No Missing Pieces</string>
     <string name="items_deleted">item(s) deleted from inventory</string>
-    <string name="widget_two_total_price">\'Widget Two\' Total Price</string>
-    <string name="widget_one_total_price">\'Widget One\' Total Price</string>
-    <string name="all_inventory_total_price">\'All Inventory\' Total Price</string>
     <string name="delete_all_inventory">Delete ALL Inventory</string>
-    <string name="add_2_dummy_inventory_items">Add a Dummy Inventory Item</string>
+    <string name="add_dummy_inventory_item">Add a Dummy Inventory Item</string>
     <string name="puzzle_image">Puzzle Image</string>
+    <string name="sell_1">Sell 1</string>
+    <string name="out_of_stock">Out of Stock</string>
+    <string name="price_example">$##.##</string>
+    <string name="unsaved_changes">You have unsaved changes. Press UP/BACK again to discard changes.</string>
+    <string name="delete_item_prompt">Delete this item?</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
+    <string name="delete_cancelled">Delete Cancelled</string>
+    <string name="delete_success">Item Deleted.</string>
+    <string name="failed_update">Unable to update item</string>
+    <string name="successful_update">Item was updated.</string>
+    <string name="successful_save">Item was saved.</string>
+    <string name="failed_save">Unable to save item.</string>
+    <string name="add_item_title">Add New Item</string>
+    <string name="edit_item_title">Edit Item</string>
+
+    <string name="item_name">Item Name</string>
+    <string name="item_onHand">On Hand</string>
+    <string name="item_price">Price</string>
+    <string name="item_supplierName">Supplier Name</string>
+    <string name="item_supplierPhone">Supplier Phone Number</string>
+
+    <string name="itemName_title">Item Name:</string>
+    <string name="itemPrice_title">Price:</string>
+    <string name="on_hand_title">On Hand:</string>
+    <string name="itemSupplierName_title">Supplier Name:</string>
+    <string name="itemSupplierPhone_title">Supplier Phone:</string>
+
+    <string name="call_reorder_item">Call/Re-Order Item</string>
+    <string name="invalid_field_value_format">Invalid %s.</string>
+    <string name="delete_item">Delete Item</string>
+    <string name="summary_search_key">Summary</string>
+    <string name="all_items_title">All Items</string>
+    <string name="summary_for_title">Items On Hand/Price</string>
+
+    <string name="all_items_query_result" tools:ignore="PluralsCandidate">There are %d item(s) on hand.\n\nThe total price of ALL INVENTORY Items is %s.</string>
+    <string name="items_query_result">There are %d %s(s) on hand.\n\nThe total price is %s.</string>
+
+    <string name="item_added">Item added to inventory</string>
+    <string name="dummy_supplier_1_name">Hansen Supplies</string>
+    <string name="dummy_supplier_1_phone">715–555–1212</string>
+    <string name="dummy_supplier_2_name">Peterson Warehouse</string>
+    <string name="dummy_supplier_2_phone">906–555–1212</string>
+    <string name="on_hand_increment_button">On Hand increment button</string>
+    <string name="on_hand_decrement_button">On Hand decrement button</string>
+    <string name="onHand_hint">#</string>
+    <string name="price_hint">###.##</string>
+    <string name="phone_hint">###-###-####</string>
+    <string name="inventory_empty">The shelves are empty. Either click the add button in the lower right or select Add Dummy Inventory Item from the app bar.</string>
+    <string name="initial_onHand">0</string>
 </resources>

@@ -8,26 +8,25 @@ import android.provider.BaseColumns;
  * API Contract for the Inventory app.
  */
 public final class InventoryContract {
-
-    // Empty constructor to prevent accidentally instantiating the contract class
-    private InventoryContract() {}
-
     /**
      * "CONTENT_AUTHORITY" using the package name for the app, it is guaranteed to be unique on the device.
      */
     public static final String CONTENT_AUTHORITY = "com.crystaltowerdesigns.inventory";
-
-    /**
-     * CONTENT_AUTHORITY is used for the base URI's to contact the content provider.
-     */
-    private static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
-
     /**
      * Possible path (appended to base content URI for possible URI's)
      * For instance, content://com.crystaltowerdesigns.inventory/ is a valid path for
      * looking at inventory data.
      */
     public static final String PATH_INVENTORY = "inventory";
+    /**
+     * CONTENT_AUTHORITY is used for the base URI's to contact the content provider.
+     */
+    private static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
+
+    // Constructor to prevent accidentally instantiating the contract class
+    private InventoryContract() {
+        throw new AssertionError("No instances for you!");
+    }
 
     /**
      * {@link BaseColumns}
@@ -56,6 +55,7 @@ public final class InventoryContract {
         /**
          * Name of database table for inventory items
          */
+        @SuppressWarnings("SpellCheckingInspection")
         public final static String TABLE_NAME = "inventorytable";
 
         /**
@@ -91,6 +91,7 @@ public final class InventoryContract {
          * <p>
          * Type: TEXT
          */
+        @SuppressWarnings("SpellCheckingInspection")
         public final static String COLUMN_ITEM_SUPPLIER_NAME = "suppliername";
 
         /**
@@ -98,6 +99,7 @@ public final class InventoryContract {
          * <p>
          * Type: TEXT
          */
+        @SuppressWarnings("SpellCheckingInspection")
         public final static String COLUMN_ITEM_SUPPLIER_PHONE_NUMBER = "supplierphone";
     }
 }

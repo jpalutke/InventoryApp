@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="mini_padding">8dp</dimen>
+    <dimen name="up_down_button_size">28dp</dimen>
+    <dimen name="price_title_space_above">12dp</dimen>
 </resources>

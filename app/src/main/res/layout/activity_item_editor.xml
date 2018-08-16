@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ItemEditorActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:contentDescription="@string/puzzle_image"
+        android:scaleType="centerCrop"
+        android:src="@drawable/puzzle" />
+
+    <!-- Use this view to washout the background image -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorWashOut"></View>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ItemEditorActivity">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginTop="@dimen/price_title_space_above"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/ItemEditTextTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/itemName_title" />
+
+            <EditText
+                android:id="@+id/editText_itemName"
+                style="@style/ItemEditText"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/item_name"
+                android:inputType="textCapWords" />
+
+            <TextView
+                style="@style/ItemEditTextTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/on_hand_title" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <ImageButton
+                        android:id="@+id/itemOnHand_up"
+                        android:layout_width="@dimen/up_down_button_size"
+                        android:layout_height="@dimen/up_down_button_size"
+                        android:contentDescription="@string/on_hand_increment_button"
+                        android:focusable="true"
+                        android:src="@drawable/ic_arrow_up_24dp" />
+
+                    <ImageButton
+                        android:id="@+id/itemOnHand_down"
+                        android:layout_width="@dimen/up_down_button_size"
+                        android:layout_height="@dimen/up_down_button_size"
+                        android:contentDescription="@string/on_hand_decrement_button"
+                        android:focusable="true"
+                        android:src="@drawable/ic_arrow_down_24dp" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/editText_itemOnHand"
+                    style="@style/ItemEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/onHand_hint"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+            <TextView
+                style="@style/ItemEditTextTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/price_title_space_above"
+                android:text="@string/itemPrice_title" />
+
+            <EditText
+                android:id="@+id/editText_itemPrice"
+                style="@style/ItemEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/price_hint"
+                android:inputType="numberDecimal" />
+
+            <TextView
+                style="@style/ItemEditTextTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/itemSupplierName_title" />
+
+            <EditText
+                android:id="@+id/editText_itemSupplierName"
+                style="@style/ItemEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/item_supplierName"
+                android:inputType="textCapWords" />
+
+            <TextView
+                style="@style/ItemEditTextTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/itemSupplierPhone_title" />
+
+            <EditText
+                android:id="@+id/editText_itemSupplierPhone"
+                style="@style/ItemEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/phone_hint"
+                android:inputType="phone" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

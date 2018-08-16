@@ -1,46 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/inventory_app_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:layout_alignParentTop="true"
-        android:background="?attr/colorPrimary"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:title="No Missing Pieces!"
-        tools:targetApi="lollipop" />
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/inventory_app_toolbar"
+        android:layout_alignParentTop="true"
         android:contentDescription="@string/puzzle_image"
         android:scaleType="centerCrop"
         android:src="@drawable/puzzle" />
 
-    <TextView
-        android:id="@+id/database_summary_header"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/inventory_app_toolbar"
-        android:background="@color/colorWashOut" />
-
-    <ScrollView
+    <!-- Use this view to washout the background image -->
+    <View
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/database_summary_header"
-        android:layout_margin="@dimen/mini_padding">
+        android:layout_alignParentTop="true"
+        android:background="@color/colorWashOut"></View>
+
+    <ListView
+        android:id="@+id/database_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:focusable="true"
+        tools:itemCount="5"
+        tools:listitem="@layout/recycler_item_view"
+        tools:orientation="vertical" />
+
+    <!-- Empty View for an Empty Recycler -->
+    <RelativeLayout
+        android:id="@+id/empty_inventory_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
 
         <TextView
-            android:id="@+id/database_summary"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/colorWashOut" />
-    </ScrollView>
+            android:layout_margin="24dp"
+            android:text="@string/inventory_empty" />
+    </RelativeLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/FloatingActionButton_Add"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="12dp"
+        android:background="@color/colorPrimary"
+        android:backgroundTint="@android:color/darker_gray"
+        android:scaleType="center"
+        android:src="@drawable/ic_add_circle_black_24dp"
+        android:tooltipText="Add a NEW Inventory Item"
+        tools:targetApi="o" />
 </RelativeLayout>
